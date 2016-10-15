@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     TextView tvHasil;
     CheckBox Paski,PMR,PA,Medsan;
     RadioButton rblk, rbpr;
-
+    Spinner spKls;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        spKls = (Spinner) findViewById(R.id.spinnerkls);
 
         Paski = (CheckBox) findViewById(R.id.checkBoxPaski);
         PA = (CheckBox) findViewById(R.id.checkBoxPalwaga);
@@ -65,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         String nama = etNama.getText().toString();
+        boolean valid = true;
+
+        if(nama.isEmpty())
+        {
+            etNama.setError("Nama belum diisi");
+            valid = false;
+        }
 
         String hasil = null;
 
@@ -82,7 +92,8 @@ public class MainActivity extends AppCompatActivity {
             tvHasil.setText("Belum memilih jenis kelamin");
         }
         else {
-            tvHasil.setText("nama "+ nama + "\nJenis Kelamin :" + hasil + "\nSub organisasi yang anda pilih :" + sub);
+            tvHasil.setText("nama :\n"+ nama + "\nJenis Kelamin :\n" + hasil + "\nKelas :\n"+ spKls.getSelectedItem().toString()
+                    +"\nSub organisasi yang anda pilih :" + sub );
         }
     }
 
