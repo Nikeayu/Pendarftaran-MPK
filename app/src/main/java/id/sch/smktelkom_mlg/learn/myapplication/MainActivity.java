@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama;
     Button bOk;
     TextView tvHasil;
+    CheckBox Paski,PMR,PA,Medsan;
     RadioButton rblk, rbpr;
 
 
@@ -21,6 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Paski = (CheckBox) findViewById(R.id.checkBoxPaski);
+        PA = (CheckBox) findViewById(R.id.checkBoxPalwaga);
+        PMR = (CheckBox) findViewById(R.id.checkBoxPMR);
+        Medsan = (CheckBox) findViewById(R.id.checkBoxMedsan);
 
         rblk = (RadioButton) findViewById(R.id.rblk);
         rbpr = (RadioButton) findViewById(R.id.rbpr);
@@ -43,11 +50,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 doClick();
+
             }
         });
     }
 
     private void doClick() {
+        String sub ="\n";
+        int startlen = sub.length();
+        if(Paski.isChecked()) sub +=Paski.getText()+"\n";
+        if(PA.isChecked()) sub +=PA.getText()+"\n";
+        if(PMR.isChecked()) sub +=PMR.getText()+"\n";
+        if(Medsan.isChecked()) sub +=Medsan.getText()+"\n";
+
+
+        String nama = etNama.getText().toString();
+
         String hasil = null;
 
         if(rblk.isChecked())
@@ -64,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             tvHasil.setText("Belum memilih jenis kelamin");
         }
         else {
-            tvHasil.setText("Jenis Kelamin :" + hasil);
+            tvHasil.setText("nama "+ nama + "\nJenis Kelamin :" + hasil + "\nSub organisasi yang anda pilih :" + sub);
         }
     }
 

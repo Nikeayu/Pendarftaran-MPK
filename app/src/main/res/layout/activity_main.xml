@@ -44,8 +44,8 @@
         android:id="@+id/textView2" />
 
     <RadioGroup
-        android:layout_width="339dp"
-        android:layout_height="198dp"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
         android:id="@+id/rgjk">
 
         <RadioButton
@@ -61,10 +61,40 @@
             android:id="@+id/rbpr" />
     </RadioGroup>
 
+    <TextView
+        android:text="Sub Organisasi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView4" />
+
+    <CheckBox
+        android:text="Paski"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxPaski" />
+
+    <CheckBox
+        android:text="Palwaga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxPalwaga" />
+
+    <CheckBox
+        android:text="PMR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxPMR" />
+
+    <CheckBox
+        android:text="Medsan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkBoxMedsan" />
+
     <Button
         android:text="Button"
-        android:layout_width="match_parent"
-        android:layout_height="277dp"
+        android:layout_width="191dp"
+        android:layout_height="45dp"
         android:id="@+id/buttonok" />
 
     <TextView
